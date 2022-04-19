@@ -1,7 +1,5 @@
 CFLAGS = -Wall -Wextra -Werror
 
-test-ctype: ctype*.c tests/test_ctype.c
-	gcc $(CFLAGS) ctype*.c tests/test_ctype.c -o test-ctype
+test-part1: ctype*.c string*.c stdlib*.c tests/test-part1.c
+	gcc $(CFLAGS) ctype*.c string*.c stdlib*.c tests/test-part1.c -o test-part1
 
-test-string: string*.c tests/test_string.c
-	gcc $(CFLAGS) string*.c tests/test_string.c -o test-string
