@@ -180,8 +180,8 @@ void	test_ft_strrchr(void)
 void	test_ft_strncmp(void)
 {
 	char	*str1 = "Un string\n";
-	char	*str2 = "Un string\n";
-	char	*str3 = "Un strzng\n";
+	char	*str2 = "Un string\nx";
+	char	*str3 = "Un strzn\n";
 	char	*str4 = "Un strang\n";
 
 	assert(ft_strncmp(str1, str2, 30) == strncmp(str1, str2, 30));
@@ -194,20 +194,66 @@ void	test_ft_strncmp(void)
 void	test_ft_memchr(void)
 {
 	char	str[] = "string de muestra.";
+	char	str2[6] = {'a', 'b', '\0', 'c', 'd', '\0'};
 	/*
 	puts(str);
-	printf("ft_memchr(str, 'e'): %p\n", ft_memchr(str, 'e'));
-	printf("memchr(str, 'e'):    %p\n", memchr(str, 'e'));
-	printf("ft_memchr(str, 'z'): %p\n", ft_memchr(str, 'z'));
-	printf("memchr(str, 'z'):    %p\n", memchr(str, 'z'));
-	printf("ft_memchr(str, '\\0'): %p\n", ft_memchr(str, '\0'));
-	printf("memchr(str, '\\0'):    %p\n", memchr(str, '\0'));
+	printf("ft_memchr(str, 'e', 16): %p\n", ft_memchr(str, 'e', 16));
+	printf("memchr(str, 'e', 16):    %p\n", memchr(str, 'e', 16));
+	printf("ft_memchr(str, 'z', 32): %p\n", ft_memchr(str, 'z', 32));
+	printf("memchr(str, 'z', 32):    %p\n", memchr(str, 'z', 32));
+	printf("ft_memchr(str, '\\0', 32): %p\n", ft_memchr(str, '\0', 32));
+	printf("memchr(str, '\\0', 32):    %p\n", memchr(str, '\0', 32));
+	printf("ft_memchr(str2, 'c', 6): %p\n", ft_memchr(str2, 'c', 6));
+	printf("memchr(str2, 'c', 6):    %p\n", memchr(str2, 'c', 6));
 	*/
 	assert(ft_memchr(str, 'e', 16) == memchr(str, 'e', 16));
 	assert(ft_memchr(str, 'e', 6) == memchr(str, 'e', 6));
 	assert(ft_memchr(str, 'z', 32) == memchr(str, 'z', 32));
 	assert(ft_memchr(str, '\0', 32) == memchr(str, '\0', 32));
+	assert(ft_memchr(str2, 'c', 6) == memchr(str2, 'c', 6));
 	puts("ft_memchr: OK");
+}
+
+void	test_ft_memcmp(void)
+{
+	char	*str1 = "Un string\n";
+	char	*str2 = "Un string\nx";
+	char	*str3 = "Un strzn\n";
+	char	*str4 = "Un strang\n";
+
+	assert(ft_memcmp(str1, str2, 10) == memcmp(str1, str2, 10));
+	assert(ft_memcmp(str1, str3, 15) == memcmp(str1, str3, 15));
+	assert(ft_memcmp(str1, str4, 10) == memcmp(str1, str4, 10));
+	assert(ft_memcmp(str1, str4, 6) == memcmp(str1, str4, 6));
+	puts("ft_memcmp: OK");
+}
+
+void	test_ft_strnstr(void)
+{
+	char	haystack[] = "Un string para buscar.";
+	char	ndl1[] = "";
+	char	ndl2[] = " para";
+	char	ndl3[] = "perita";
+	char	ndl4[] = "buscar..";
+
+	assert(ft_strnstr(haystack, ndl1, 30) == strnstr(haystack, ndl1, 30));
+	assert(ft_strnstr(haystack, ndl2, 12) == strnstr(haystack, ndl2, 12));
+	assert(ft_strnstr(haystack, ndl2, 20) == strnstr(haystack, ndl2, 20));
+	assert(ft_strnstr(haystack, ndl3, 25) == strnstr(haystack, ndl3, 25));
+	assert(ft_strnstr(haystack, ndl4, 30) == strnstr(haystack, ndl4, 30));
+	puts("ft_strnstr: OK");
+}
+
+void	test_ft_strdup(void)
+{
+	char	*str = "Doble elefante telepata de guerra.";
+	char	*cpy;
+	char	*cpy2;
+
+	cpy = ft_strdup(str);
+	cpy2 = strdup(str);
+	assert((cpy == 0 || cpy2 == 0 ? cpy == cpy2 : !strcmp(cpy, cpy2)));
+	puts("ft_strdup: OK");
 }
 
 int	main(void)
@@ -222,4 +268,8 @@ int	main(void)
 	test_ft_strchr();
 	test_ft_strrchr();
 	test_ft_strncmp();
+	test_ft_memchr();
+	test_ft_memcmp();
+	test_ft_strnstr();
+	test_ft_strdup();
 }

@@ -6,7 +6,7 @@
 /*   By: jarredon <jarredon@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/19 11:09:31 by jarredon          #+#    #+#             */
-/*   Updated: 2022/04/19 13:29:58 by jarredon         ###   ########.fr       */
+/*   Updated: 2022/04/19 16:51:52 by jarredon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -95,5 +95,8 @@ int	ft_strncmp(const char *s1, const char *s2, unsigned int n)
 			return ((unsigned char) s1[i] - (unsigned char) s2[i]);
 		i++;
 	}
-	return (0);
+	if (i >= n)
+		return (0);
+	else
+		return ((unsigned char) s1[i] - (unsigned char) s2[i]);
 }
