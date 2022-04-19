@@ -1,0 +1,225 @@
+#include <stdio.h>
+#include <assert.h>
+#include <string.h>
+#include "../libft.h"
+
+void	test_ft_strlen(void)
+{
+	char	str1[] = "";
+	char	str2[] = "bacon frito\n";
+
+	//printf("ft_strlen(str1): %d\n", ft_strlen(str1));
+	assert(ft_strlen(str1) == strlen(str1));
+	//printf("ft_strlen(str2): %d\n", ft_strlen(str2));
+	assert(ft_strlen(str2) == strlen(str2));
+	puts("ft_strlen: OK");
+}
+
+void	test_ft_memset(void)
+{
+	char	str[] = "----------";
+	char	strb[] = "----------";
+	
+	ft_memset(str, 'z', 4);
+	memset(strb, 'z', 4);
+	assert(!strcmp(str, strb));
+	puts("ft_memset: OK");
+}
+
+void	test_ft_bzero(void)
+{
+	char	str[] = "----------";
+	char	strb[] = "----------";
+	
+	ft_bzero(str, 4);
+	bzero(strb, 4);
+	assert(!strcmp(str, strb));
+	puts("ft_bzero: OK");
+}
+
+void	test_ft_memcpy(void)
+{
+	char	dst[] = "----------";
+	char	dstb[] = "----------";
+	char	src[] = "12345678";
+	char	srcb[] = "12345678";
+
+	ft_memcpy(dst, src, 0);	
+	memcpy(dstb, srcb, 0);	
+	assert(!strcmp(dst, dstb));
+	ft_memcpy(dst, src, 4);	
+	memcpy(dstb, srcb, 4);	
+	assert(!strcmp(dst, dstb));
+	puts("ft_memcpy: OK");
+}
+
+void	test_ft_memmove(void)
+{
+	char	str[] = "-----12345678--------";
+	char	strb[] = "-----12345678--------";
+
+	ft_memmove(str, &str[5], 0);	
+	memmove(strb, &strb[5], 0);	
+	assert(!strcmp(str, strb));
+	ft_memmove(str, &str[5], 7);	
+	memmove(strb, &strb[5], 7);	
+	assert(!strcmp(str, strb));
+	ft_memmove(&str[10], &str[5], 7);	
+	memmove(&strb[10], &strb[5], 7);	
+	assert(!strcmp(str, strb));
+	puts("ft_memmove: OK");
+}
+
+void	test_ft_strlcpy(void)
+{
+	char	str1[] = "";
+	char	str2[] = "bacon frito";
+	char	str3[10];
+	char	str3b[10];
+	char	str4[20];
+	char	str4b[20];
+
+	int	len = ft_strlcpy(str3, str1, 10);
+	//printf("ft_strlcpy(str3, str1, 10): %d\n%s\n", len, str3);
+	int	lenb = strlcpy(str3b, str1, 10);
+	//printf("strlcpy(str3b, str1, 10): %d\n%s\n", lenb, str3b);
+	assert(len == lenb);
+	assert(!strcmp(str3, str3b));
+
+	len = ft_strlcpy(str3, str2, 10);
+	//printf("ft_strlcpy(str3, str2, 10): %d\n%s\n", len, str3);
+	lenb = strlcpy(str3b, str2, 10);
+	//printf("strlcpy(str3b, str2, 10): %d\n%s\n", lenb, str3b);
+	assert(len == lenb);
+	assert(!strcmp(str3, str3b));
+
+	len = ft_strlcpy(str4, str2, 20);
+	//printf("ft_strlcpy(str4, str2, 20): %d\n%s\n", len, str4);
+	lenb = strlcpy(str4b, str2, 20);
+	//printf("strlcpy(str4b, str2, 20): %d\n%s\n", lenb, str4b);
+	assert(len == lenb);
+	assert(!strcmp(str4, str4b));
+	puts("ft_strlcpy: OK");
+}
+
+void	test_ft_strlcat(void)
+{
+	char	str1[] = "";
+	char	str2[] = "bacon frito";
+	char	str3[10] = "dst.";
+	char	str3b[10] = "dst.";
+	char	str4[20] = "dst2.";
+	char	str4b[20] = "dst2.";
+
+	int	len = ft_strlcat(str3, str1, 10);
+	//printf("ft_strlcat(str3, str1, 10): %d\n%s\n", len, str3);
+	int	lenb = strlcat(str3b, str1, 10);
+	//printf("strlcat(str3b, str1, 10): %d\n%s\n", lenb, str3b);
+	assert(len == lenb);
+	assert(!strcmp(str3, str3b));
+
+	len = ft_strlcat(str3, str1, 2);
+	//printf("ft_strlcat(str3, str1, 2): %d\n%s\n", len, str3);
+	lenb = strlcat(str3b, str1, 2);
+	//printf("strlcat(str3b, str1, 2): %d\n%s\n", lenb, str3b);
+	assert(len == lenb);
+	assert(!strcmp(str3, str3b));
+
+	len = ft_strlcat(str3, str2, 10);
+	//printf("ft_strlcat(str3, str2, 10): %d\n%s\n", len, str3);
+	lenb = strlcat(str3b, str2, 10);
+	//printf("strlcat(str3b, str2, 10): %d\n%s\n", lenb, str3b);
+	assert(len == lenb);
+	assert(!strcmp(str3, str3b));
+
+	len = ft_strlcat(str4, str2, 20);
+	//printf("ft_strlcat(str4, str2, 20): %d\n%s\n", len, str4);
+	lenb = strlcat(str4b, str2, 20);
+	//printf("strlcat(str4b, str2, 20): %d\n%s\n", lenb, str4b);
+	assert(len == lenb);
+	assert(!strcmp(str4, str4b));
+	puts("ft_strlcat: OK");
+}
+
+void	test_ft_strchr(void)
+{
+	char	str[] = "string de muestra.";
+	/*
+	puts(str);
+	printf("ft_strchr(str, 'e'): %p\n", ft_strchr(str, 'e'));
+	printf("strchr(str, 'e'):    %p\n", strchr(str, 'e'));
+	printf("ft_strchr(str, 'z'): %p\n", ft_strchr(str, 'z'));
+	printf("strchr(str, 'z'):    %p\n", strchr(str, 'z'));
+	printf("ft_strchr(str, '\\0'): %p\n", ft_strchr(str, '\0'));
+	printf("strchr(str, '\\0'):    %p\n", strchr(str, '\0'));
+	*/
+	assert(ft_strchr(str, 'e') == strchr(str, 'e'));
+	assert(ft_strchr(str, 'z') == strchr(str, 'z'));
+	assert(ft_strchr(str, '\0') == strchr(str, '\0'));
+	puts("ft_strchr: OK");
+}
+
+void	test_ft_strrchr(void)
+{
+	char	str[] = "string de muestra.";
+	/*
+	puts(str);
+	printf("ft_strrchr(str, 'e'): %p\n", ft_strrchr(str, 'e'));
+	printf("strrchr(str, 'e'):    %p\n", strrchr(str, 'e'));
+	printf("ft_strrchr(str, 'z'): %p\n", ft_strrchr(str, 'z'));
+	printf("strrchr(str, 'z'):    %p\n", strrchr(str, 'z'));
+	printf("ft_strrchr(str, '\\0'): %p\n", ft_strrchr(str, '\0'));
+	printf("strrchr(str, '\\0'):    %p\n", strrchr(str, '\0'));
+	*/
+	assert(ft_strrchr(str, 'e') == strrchr(str, 'e'));
+	assert(ft_strrchr(str, 'z') == strrchr(str, 'z'));
+	assert(ft_strrchr(str, '\0') == strrchr(str, '\0'));
+	puts("ft_strrchr: OK");
+}
+
+void	test_ft_strncmp(void)
+{
+	char	*str1 = "Un string\n";
+	char	*str2 = "Un string\n";
+	char	*str3 = "Un strzng\n";
+	char	*str4 = "Un strang\n";
+
+	assert(ft_strncmp(str1, str2, 30) == strncmp(str1, str2, 30));
+	assert(ft_strncmp(str1, str3, 30) == strncmp(str1, str3, 30));
+	assert(ft_strncmp(str1, str4, 30) == strncmp(str1, str4, 30));
+	assert(ft_strncmp(str1, str4, 6) == strncmp(str1, str4, 6));
+	puts("ft_strncmp: OK");
+}
+
+void	test_ft_memchr(void)
+{
+	char	str[] = "string de muestra.";
+	/*
+	puts(str);
+	printf("ft_memchr(str, 'e'): %p\n", ft_memchr(str, 'e'));
+	printf("memchr(str, 'e'):    %p\n", memchr(str, 'e'));
+	printf("ft_memchr(str, 'z'): %p\n", ft_memchr(str, 'z'));
+	printf("memchr(str, 'z'):    %p\n", memchr(str, 'z'));
+	printf("ft_memchr(str, '\\0'): %p\n", ft_memchr(str, '\0'));
+	printf("memchr(str, '\\0'):    %p\n", memchr(str, '\0'));
+	*/
+	assert(ft_memchr(str, 'e', 16) == memchr(str, 'e', 16));
+	assert(ft_memchr(str, 'e', 6) == memchr(str, 'e', 6));
+	assert(ft_memchr(str, 'z', 32) == memchr(str, 'z', 32));
+	assert(ft_memchr(str, '\0', 32) == memchr(str, '\0', 32));
+	puts("ft_memchr: OK");
+}
+
+int	main(void)
+{
+	test_ft_strlen();
+	test_ft_memset();
+	test_ft_bzero();
+	test_ft_memcpy();
+	test_ft_memmove();
+	test_ft_strlcpy();
+	test_ft_strlcat();
+	test_ft_strchr();
+	test_ft_strrchr();
+	test_ft_strncmp();
+}
