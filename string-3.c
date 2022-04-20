@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   string_3.c                                         :+:      :+:    :+:   */
+/*   string-3.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jarredon <jarredon@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/19 17:41:20 by jarredon          #+#    #+#             */
-/*   Updated: 2022/04/20 13:13:05 by jarredon         ###   ########.fr       */
+/*   Updated: 2022/04/20 18:50:08 by jarredon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,7 +57,7 @@ char	*ft_strnstr(const char *haystack, const char *needle, unsigned int len)
 	if (len_ndl == 0)
 		return ((char *) haystack);
 	i = 0;
-	while (haystack[i] && i < (len - len_ndl))
+	while (haystack[i] && i <= (len - len_ndl))
 	{
 		if (!ft_strncmp(&haystack[i], needle, len_ndl))
 			return ((char *) &haystack[i]);

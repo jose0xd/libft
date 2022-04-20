@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   string_2.c                                         :+:      :+:    :+:   */
+/*   string-2.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jarredon <jarredon@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/19 11:09:31 by jarredon          #+#    #+#             */
-/*   Updated: 2022/04/19 16:51:52 by jarredon         ###   ########.fr       */
+/*   Updated: 2022/04/20 18:35:43 by jarredon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,8 @@ unsigned int	ft_strlcpy(char *dst, const char *src, unsigned int size)
 	unsigned int	len;
 
 	len = 0;
+	if (size == 0)
+		return (ft_strlen(src));
 	while (*src && size-- > 1)
 	{
 		*dst++ = *src++;

@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   more_2.c                                           :+:      :+:    :+:   */
+/*   more-2.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jarredon <jarredon@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/20 14:51:09 by jarredon          #+#    #+#             */
-/*   Updated: 2022/04/20 14:52:33 by jarredon         ###   ########.fr       */
+/*   Updated: 2022/04/20 19:35:50 by jarredon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,6 +89,8 @@ char	*ft_itoa(int n)
 	}
 	if (sign)
 		cache[i--] = '-';
+	if (n == 0)
+		cache[i--] = '0';
 	return (ft_strdup(&cache[i + 1]));
 }
 
@@ -114,6 +116,9 @@ void	ft_striteri(char *s, void (*f)(unsigned int, char*))
 	unsigned int	i;
 
 	i = 0;
-	while (s[i++])
+	while (s[i])
+	{
 		f(i, &s[i]);
+		i++;
+	}
 }

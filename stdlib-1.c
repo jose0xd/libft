@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   stdlib_1.c                                         :+:      :+:    :+:   */
+/*   stdlib-1.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jarredon <jarredon@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/19 19:57:47 by jarredon          #+#    #+#             */
-/*   Updated: 2022/04/19 19:57:49 by jarredon         ###   ########.fr       */
+/*   Updated: 2022/04/20 18:41:08 by jarredon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,6 +54,8 @@ void	*ft_calloc(unsigned int count, unsigned int size)
 	unsigned int	i;
 
 	ptr = (char *) malloc(count * size);
+	if (ptr == 0)
+		return (0);
 	i = 0;
 	while (i < (count * size))
 		ptr[i++] = 0;

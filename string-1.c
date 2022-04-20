@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   string_1.c                                         :+:      :+:    :+:   */
+/*   string-1.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jarredon <jarredon@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/19 11:09:04 by jarredon          #+#    #+#             */
-/*   Updated: 2022/04/20 11:03:21 by jarredon         ###   ########.fr       */
+/*   Updated: 2022/04/20 18:30:24 by jarredon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,6 +51,8 @@ void	*ft_memcpy(void *dst, const void *src, unsigned int n)
 	unsigned char	*tmp;
 	unsigned char	*src_tmp;
 
+	if (dst == 0 && src == 0)
+		return (0);
 	tmp = (unsigned char *) dst;
 	src_tmp = (unsigned char *) src;
 	while (n > 0)
@@ -66,6 +68,8 @@ void	*ft_memmove(void *dst, const void *src, unsigned int len)
 	unsigned char	*tmp;
 	unsigned char	*src_tmp;
 
+	if (dst == 0 && src == 0)
+		return (0);
 	tmp = (unsigned char *) dst;
 	src_tmp = (unsigned char *) src;
 	if (src_tmp > tmp)

@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   more_1.c                                           :+:      :+:    :+:   */
+/*   more-1.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jarredon <jarredon@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/20 14:52:44 by jarredon          #+#    #+#             */
-/*   Updated: 2022/04/20 14:52:45 by jarredon         ###   ########.fr       */
+/*   Updated: 2022/04/20 19:32:56 by jarredon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,11 +25,13 @@ char	*ft_substr(char const *s, unsigned int start, unsigned int len)
 		size = len + 1;
 	else
 		size = len_s - start + 1;
+	if (start >= len_s)
+		size = 1;
 	ptr = (char *) malloc(sizeof(char) * size);
 	if (ptr == 0)
 		return (ptr);
 	i = 0;
-	while (s[start + i] && i < len)
+	while (s[start + i] && i < len && start < len_s)
 	{
 		ptr[i] = s[start + i];
 		i++;
