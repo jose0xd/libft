@@ -6,13 +6,11 @@
 /*   By: jarredon <jarredon@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/19 11:09:04 by jarredon          #+#    #+#             */
-/*   Updated: 2022/04/19 13:21:13 by jarredon         ###   ########.fr       */
+/*   Updated: 2022/04/20 11:03:21 by jarredon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-
-#include <stdio.h> // borrar
 
 unsigned int	ft_strlen(const char *s)
 {

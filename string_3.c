@@ -6,7 +6,7 @@
 /*   By: jarredon <jarredon@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/19 17:41:20 by jarredon          #+#    #+#             */
-/*   Updated: 2022/04/19 17:41:24 by jarredon         ###   ########.fr       */
+/*   Updated: 2022/04/20 13:13:05 by jarredon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,5 +84,6 @@ char	*ft_strdup(const char *s1)
 	{
 		*tmp++ = *s1++;
 	}
+	*tmp = '\0';
 	return (copy);
 }
