@@ -17,12 +17,14 @@
 void	*ft_memchr(const void *s, int c, unsigned int n)
 {
 	unsigned int	i;
+	unsigned char	*str;
 
+	str = (unsigned char *)s;
 	i = 0;
 	while (i < n)
 	{
-		if (((unsigned char *) s)[i] == (unsigned char) c)
-			return ((void *) &s[i]);
+		if (str[i] == (unsigned char) c)
+			return ((void *) &str[i]);
 		i++;
 	}
 	return (0);
@@ -48,11 +50,9 @@ int	ft_memcmp(const void *s1, const void *s2, unsigned int n)
 
 char	*ft_strnstr(const char *haystack, const char *needle, unsigned int len)
 {
-	unsigned int	len_hay;
 	unsigned int	len_ndl;
 	unsigned int	i;
 
-	len_hay = ft_strlen(haystack);
 	len_ndl = ft_strlen(needle);
 	if (len_ndl == 0)
 		return ((char *) haystack);

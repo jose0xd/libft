@@ -9,7 +9,7 @@ BONUS = list1_bonus.o list2_bonus.o
 all: $(NAME)
 
 %.o: %.c
-	$(CC) $(CFLAGS) -c $<
+	$(CC) $(CFLAGS) -c $< -o $@
 
 $(NAME): $(OBJ)
 	ar rcs $(NAME) $(OBJ)
