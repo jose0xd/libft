@@ -1,52 +1,17 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   stdlib-1.c                                         :+:      :+:    :+:   */
+/*   ft_calloc.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jarredon <jarredon@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/04/19 19:57:47 by jarredon          #+#    #+#             */
-/*   Updated: 2022/04/20 18:41:08 by jarredon         ###   ########.fr       */
+/*   Created: 2022/04/24 12:05:57 by jarredon          #+#    #+#             */
+/*   Updated: 2022/04/24 12:06:39 by jarredon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
-#include <errno.h>
 #include "libft.h"
-
-static	int	ft_isspace(int c)
-{
-	if (c == '\t' || c == '\n' || c == '\v'
-		|| c == '\f' || c == '\r' || c == ' ')
-		return (1);
-	return (0);
-}
-
-int	ft_atoi(const char *str)
-{
-	int	num;
-	int	sign;
-
-	num = 0;
-	sign = 1;
-	while (ft_isspace(*str))
-		str++;
-	if (*str == '-')
-	{
-		sign = -1;
-		str++;
-	}
-	if (*str == '+')
-		str++;
-	while (ft_isdigit(*str))
-	{
-		num *= 10;
-		num += *str - '0';
-		str++;
-	}
-	errno = EINVAL;
-	return (num * sign);
-}
 
 void	*ft_calloc(unsigned int count, unsigned int size)
 {

@@ -1,10 +1,10 @@
 CC = gcc
 CFLAGS = -Wall -Wextra -Werror
 NAME = libft.a
-SRC = ctype-1.c ctype-2.c string-1.c string-2.c string-3.c stdlib-1.c\
-	  more-1.c more-2.c more-3.c
+SRC = $(shell find . -name "*.c" ! -name "*_bonus.c")
+SRC_BONUS = $(shell find . -name "*_bonus.c")
 OBJ = $(SRC:.c=.o)
-BONUS = list1_bonus.o list2_bonus.o
+OBJ_BONUS = $(SRC_BONUS:.c=.o)
 
 all: $(NAME)
 
@@ -16,14 +16,14 @@ $(NAME): $(OBJ)
 
 clean:
 	rm -f $(OBJ)
-	rm -f $(BONUS)
+	rm -f $(OBJ_BONUS)
 
 fclean: clean
 	rm -f libft.a
 
 re: fclean all
 
-bonus: $(NAME) $(BONUS)
-	ar r $(NAME) $(BONUS)
+bonus: $(NAME) $(OBJ_BONUS)
+	ar r $(NAME) $(OBJ_BONUS)
 
 .PHONY: all clean fclean re
