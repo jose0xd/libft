@@ -6,7 +6,7 @@
 /*   By: jarredon <jarredon@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/24 12:02:59 by jarredon          #+#    #+#             */
-/*   Updated: 2022/04/25 17:45:00 by jarredon         ###   ########.fr       */
+/*   Updated: 2022/04/25 19:52:57 by jarredon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ char	*ft_strnstr(const char *haystack, const char *needle, unsigned int len)
 	len_ndl = ft_strlen(needle);
 	if (len_ndl == 0)
 		return ((char *) haystack);
-	if (len_ndl > len || len == 0)
+	if (len == 0)
 		return (0);
 	i = 0;
 	while (haystack[i] && i <= (len - len_ndl))

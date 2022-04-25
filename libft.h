@@ -6,7 +6,7 @@
 /*   By: jarredon <jarredon@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/19 11:08:27 by jarredon          #+#    #+#             */
-/*   Updated: 2022/04/20 19:59:20 by jarredon         ###   ########.fr       */
+/*   Updated: 2022/04/25 18:12:42 by jarredon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ char			*ft_strnstr(const char *haystack, const char *needle,
 					unsigned int len);
 int				ft_atoi(const char *str);
 
-void			*ft_calloc(unsigned int count, unsigned int size);
+void			*ft_calloc(unsigned long count, unsigned long size);
 char			*ft_strdup(const char *s1);
 
 char			*ft_substr(char const *s, unsigned int start, unsigned int len);
