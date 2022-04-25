@@ -6,7 +6,7 @@
 /*   By: jarredon <jarredon@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/24 12:05:06 by jarredon          #+#    #+#             */
-/*   Updated: 2022/04/24 12:05:46 by jarredon         ###   ########.fr       */
+/*   Updated: 2022/04/25 17:50:14 by jarredon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ int	ft_atoi(const char *str)
 		sign = -1;
 		str++;
 	}
-	if (*str == '+')
+	else if (*str == '+')
 		str++;
 	while (ft_isdigit(*str))
 	{
