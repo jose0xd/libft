@@ -24,6 +24,7 @@ $(NAME): $(OBJ)
 clean:
 	rm -f $(OBJ)
 	rm -f $(OBJ_BONUS)
+	make -C printf clean
 
 fclean: clean
 	rm -f libft.a
@@ -32,5 +33,9 @@ re: fclean all
 
 bonus: $(NAME) $(OBJ_BONUS)
 	ar rcs $(NAME) $(OBJ_BONUS)
+
+plus: all bonus
+	make -C printf all
+	ar rcs $(NAME) printf/*.o
 
 .PHONY: all clean fclean re
