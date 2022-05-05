@@ -6,7 +6,7 @@
 /*   By: jarredon <jarredon@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/24 12:10:51 by jarredon          #+#    #+#             */
-/*   Updated: 2022/04/24 12:11:57 by jarredon         ###   ########.fr       */
+/*   Updated: 2022/05/05 12:54:06 by jarredon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,6 +45,8 @@ char	**ft_split(char const *s, char c)
 	char			*memory;
 	char			**array;
 
+	if (!s)
+		return (NULL);
 	len = ft_strlen(s);
 	memory = ft_strdup(s);
 	if (memory == 0)

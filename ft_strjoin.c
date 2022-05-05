@@ -6,7 +6,7 @@
 /*   By: jarredon <jarredon@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/24 12:08:55 by jarredon          #+#    #+#             */
-/*   Updated: 2022/04/24 12:09:43 by jarredon         ###   ########.fr       */
+/*   Updated: 2022/05/05 12:52:37 by jarredon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,8 @@ char	*ft_strjoin(char const *s1, char const *s2)
 	char			*ptr;
 	int				i;
 
+	if (!s1 || !s2)
+		return (NULL);
 	size = ft_strlen(s1) + ft_strlen(s2) + 1;
 	ptr = (char *) malloc(sizeof(char) * size);
 	if (ptr == 0)

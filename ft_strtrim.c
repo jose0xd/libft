@@ -6,7 +6,7 @@
 /*   By: jarredon <jarredon@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/24 12:10:02 by jarredon          #+#    #+#             */
-/*   Updated: 2022/04/24 12:10:44 by jarredon         ###   ########.fr       */
+/*   Updated: 2022/05/05 12:53:20 by jarredon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,8 @@ char	*ft_strtrim(char const *s1, char const *set)
 	unsigned int	len;
 	unsigned int	i;
 
+	if (!s1 || !set)
+		return (NULL);
 	start = 0;
 	while (is_in_str(s1[start], (char *) set))
 		start++;

@@ -6,7 +6,7 @@
 /*   By: jarredon <jarredon@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/24 12:08:17 by jarredon          #+#    #+#             */
-/*   Updated: 2022/04/24 12:08:44 by jarredon         ###   ########.fr       */
+/*   Updated: 2022/05/03 18:22:19 by jarredon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,8 @@ char	*ft_substr(char const *s, unsigned int start, unsigned int len)
 	char			*ptr;
 	unsigned int	i;
 
+	if (!s)
+		return (0);
 	len_s = ft_strlen(s);
 	if ((len_s - start) > len)
 		size = len + 1;

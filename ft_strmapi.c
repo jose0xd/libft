@@ -6,7 +6,7 @@
 /*   By: jarredon <jarredon@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/24 12:13:10 by jarredon          #+#    #+#             */
-/*   Updated: 2022/04/24 12:13:50 by jarredon         ###   ########.fr       */
+/*   Updated: 2022/05/05 12:55:09 by jarredon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,9 +18,11 @@ char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 	char			*str;
 	unsigned int	i;
 
+	if (!s)
+		return (NULL);
 	str = ft_strdup(s);
 	if (str == 0)
-		return (0);
+		return (NULL);
 	i = 0;
 	while (str[i])
 	{
