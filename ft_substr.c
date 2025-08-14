@@ -33,7 +33,7 @@ char	*ft_substr(char const *s, unsigned int start, unsigned int len)
 	if (ptr == 0)
 		return (ptr);
 	i = 0;
-	while (s[start + i] && i < len && start < len_s)
+	while (i < len && start < len_s && s[start + i])
 	{
 		ptr[i] = s[start + i];
 		i++;

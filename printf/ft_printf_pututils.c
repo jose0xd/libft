@@ -29,11 +29,9 @@ int	ft_printf_putstr(char *s)
 	len = 0;
 	if (!s)
 		return (len);
-	while (*s)
-	{
-		write(1, s++, 1);
+	while (s[len])
 		len++;
-	}
+	write(1, s, len);
 	return (len);
 }
 
